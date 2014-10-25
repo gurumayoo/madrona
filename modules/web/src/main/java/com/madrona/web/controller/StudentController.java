@@ -11,4 +11,9 @@ public class StudentController {
     public String addStudentPage() {
         return "student/add-student";
     }
+
+    @RequestMapping(value = "list-student")
+    public String listAllStudentsPage() {
+        return "student/list-student";
+    }
 }

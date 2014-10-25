@@ -48,7 +48,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="add-student"><i class="fa fa-angle-double-right"></i> Add Student</a></li>
-                    <li><a href="pages/charts/flot.html"><i class="fa fa-angle-double-right"></i> Flot</a></li>
+                    <li><a href="list-student"><i class="fa fa-angle-double-right"></i> Search Student</a></li>
                     <li><a href="pages/charts/inline.html"><i class="fa fa-angle-double-right"></i> Inline charts</a>
                     </li>
                 </ul>
