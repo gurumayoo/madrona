@@ -49,14 +49,14 @@
                 <ul class="treeview-menu">
                     <li><a href="add-student"><i class="fa fa-angle-double-right"></i> Add Student</a></li>
                     <li><a href="list-student"><i class="fa fa-angle-double-right"></i> Search Student</a></li>
-                    <li><a href="pages/charts/inline.html"><i class="fa fa-angle-double-right"></i> Inline charts</a>
+                    <li><a href="pages/charts/inline.html"><i class="fa fa-angle-double-right"></i> Analyse Student</a>
                     </li>
                 </ul>
             </li>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-laptop"></i>
-                    <span>UI Elements</span>
+                    <span>Classes</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
@@ -69,7 +69,7 @@
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-edit"></i> <span>Forms</span>
+                    <i class="fa fa-edit"></i> <span>Staff</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
@@ -82,7 +82,7 @@
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-table"></i> <span>Tables</span>
+                    <i class="fa fa-table"></i> <span>Attendance</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
@@ -93,19 +93,19 @@
             </li>
             <li>
                 <a href="pages/calendar.html">
-                    <i class="fa fa-calendar"></i> <span>Calendar</span>
+                    <i class="fa fa-calendar"></i> <span>Time Table</span>
                     <small class="badge pull-right bg-red">3</small>
                 </a>
             </li>
             <li>
                 <a href="pages/mailbox.html">
-                    <i class="fa fa-envelope"></i> <span>Mailbox</span>
+                    <i class="fa fa-envelope"></i> <span>Calender Events</span>
                     <small class="badge pull-right bg-yellow">12</small>
                 </a>
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-folder"></i> <span>Examples</span>
+                    <i class="fa fa-folder"></i> <span>User Management</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
@@ -119,6 +119,12 @@
                     <li><a href="pages/examples/500.html"><i class="fa fa-angle-double-right"></i> 500 Error</a></li>
                     <li><a href="pages/examples/blank.html"><i class="fa fa-angle-double-right"></i> Blank Page</a></li>
                 </ul>
+            </li>
+            <li>
+                <a href="pages/mailbox.html">
+                    <i class="fa fa-envelope"></i> <span>Sports</span>
+                    <small class="badge pull-right bg-yellow">12</small>
+                </a>
             </li>
         </ul>
     </section>
