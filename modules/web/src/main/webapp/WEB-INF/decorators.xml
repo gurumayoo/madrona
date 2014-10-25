@@ -6,13 +6,13 @@
         <pattern>/META-INF/*</pattern>
     </excludes>
 
-    <decorator name="loginLayout" page="login-layout.jsp">
+    <decorator name="loginLayout" page="login-decorator.jsp">
         <pattern>/</pattern>
         <pattern>*/login</pattern>
         <pattern>*/sign-up</pattern>
     </decorator>
 
-    <decorator name="indexLayout" page="dash-layout.jsp">
+    <decorator name="indexLayout" page="dashboard-decorator.jsp">
         <pattern>*/*</pattern>
     </decorator>
 

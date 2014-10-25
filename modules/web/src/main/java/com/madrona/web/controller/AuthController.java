@@ -6,17 +6,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AuthController {
 
-    @RequestMapping(value = {"/login" , "/" })
+    @RequestMapping(value = {"/login", "/"})
     public String loginPage() {
         return "login";
     }
 
-    @RequestMapping(value = {"/index" , "/" })
+    @RequestMapping(value = "/index")
     public String dashBoardPage() {
         return "dash-board";
     }
 
-    @RequestMapping(value = {"/sign-up" , "/" })
+    @RequestMapping(value = "/sign-up")
     public String signUpPage() {
         return "sign-up";
     }

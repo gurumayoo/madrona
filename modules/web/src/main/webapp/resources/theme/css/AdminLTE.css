@@ -301,7 +301,8 @@ img {
   .left-side,
   .header,
   .content-header {
-    display: none;
+    /*display: none;*/
+
   }
   .right-side {
     margin: 0;

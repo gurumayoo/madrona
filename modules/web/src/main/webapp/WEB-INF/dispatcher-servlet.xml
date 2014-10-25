@@ -15,7 +15,7 @@
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <!--<value>classpath:connection.properties</value>-->
+                <value>classpath:messages_en.properties</value>
             </list>
         </property>
     </bean>

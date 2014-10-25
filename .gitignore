@@ -2,3 +2,4 @@
 
 .idea/
 *.iml
+modules/web/target/
