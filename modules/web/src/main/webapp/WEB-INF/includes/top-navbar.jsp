@@ -47,7 +47,7 @@
                 <li>
                     <a href="#">
                         <div class="pull-left">
-                            <img src="/resources/theme/img/avatar2.png" class="img-circle" alt="user image"/>
+                            <img src="<c:url value="/resources/theme/img/avatar2.png"/>" class="img-circle" alt="user image"/>
                         </div>
                         <h4>
                             AdminLTE Design Team
@@ -59,7 +59,7 @@
                 <li>
                     <a href="#">
                         <div class="pull-left">
-                            <img src="/resources/theme/img/avatar.png" class="img-circle" alt="user image"/>
+                            <img src="<c:url value="/resources/theme/img/avatar.png"/>" class="img-circle" alt="user image"/>
                         </div>
                         <h4>
                             Developers
@@ -71,7 +71,7 @@
                 <li>
                     <a href="#">
                         <div class="pull-left">
-                            <img src="/resources/theme/img/avatar2.png" class="img-circle" alt="user image"/>
+                            <img src="<c:url value="/resources/theme/img/avatar2.png"/>" class="img-circle" alt="user image"/>
                         </div>
                         <h4>
                             Sales Department
@@ -83,7 +83,7 @@
                 <li>
                     <a href="#">
                         <div class="pull-left">
-                            <img src="/resources/theme/img/avatar.png" class="img-circle" alt="user image"/>
+                            <img src="<c:url value="/resources/theme/img/avatar.png"/>" class="img-circle" alt="user image"/>
                         </div>
                         <h4>
                             Reviewers
@@ -227,7 +227,7 @@
     <ul class="dropdown-menu">
         <!-- User image -->
         <li class="user-header bg-light-blue">
-            <img src="/resources/theme/img/avatar3.png" class="img-circle" alt="User Image"/>
+            <img src="<c:url value="/resources/theme/img/avatar3.png"/>" class="img-circle" alt="User Image"/>
 
             <p>
                 Jane Doe - Web Developer
