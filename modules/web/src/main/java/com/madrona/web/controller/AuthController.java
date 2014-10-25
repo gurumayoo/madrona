@@ -16,4 +16,9 @@ public class AuthController {
         return "dash-board";
     }
 
+    @RequestMapping(value = {"/sign-up" , "/" })
+    public String signUpPage() {
+        return "sign-up";
+    }
+
 }

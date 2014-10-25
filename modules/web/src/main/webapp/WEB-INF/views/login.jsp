@@ -26,7 +26,7 @@
 
                 <p><a href="#">I forgot my password</a></p>
 
-                <a href="index" class="text-center">Register a new membership</a>
+                <a href="sign-up" class="text-center">Register a new membership</a>
             </div>
         </form>
         <div class="margin text-center">

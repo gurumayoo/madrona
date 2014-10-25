@@ -9,12 +9,7 @@
     <decorator name="loginLayout" page="login-layout.jsp">
         <pattern>/</pattern>
         <pattern>*/login</pattern>
-        <pattern>*/access-denied</pattern>
-    </decorator>
-
-    <decorator name="signUpLayout" page="signup-layout.jsp">
         <pattern>*/sign-up</pattern>
-        <pattern>*/add-user-action</pattern>
     </decorator>
 
     <decorator name="indexLayout" page="dash-layout.jsp">

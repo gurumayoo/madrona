@@ -31,7 +31,7 @@
 <decorator:body/>
 
 <!-- jQuery 2.0.2 -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js" type="text/javascript"></script>
 <!-- Bootstrap -->
 <script src="<c:url value="/resources/theme/js/bootstrap.min.js"/>" type="text/javascript"></script>
 </body>
