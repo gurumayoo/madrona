@@ -17,9 +17,9 @@
 
     <context:property-placeholder location="classpath:connection.properties"/>
 
-
-    <import resource="madrona-context.xml" />
+    <import resource="madrona-hibernate-context.xml" />
     <import resource="spring-database.xml" />
+    <import resource="mail-sender-context.xml" />
 
     <jaxrs:server id="madronaServer" address="http://localhost:20001">
         <jaxrs:serviceBeans>
@@ -42,7 +42,8 @@
           p:mapper-ref="jacksonMapper"/>
 
     <bean id="restService" class="com.madrona.server.RestCoreService"
-            p:commonService-ref="commonService"/>
+            p:commonService-ref="commonService"
+            p:emailSender-ref="mailSenderService"/>
 
     <bean id="commonService" class="com.madrona.server.service.impl.CommonServiceImpl"
           p:commonDao-ref="commonDao"/>

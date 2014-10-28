@@ -19,51 +19,15 @@
     <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 
-    <!--we will be using annotation driven handler mapping-->
-    <mvc:annotation-driven/>
-
-    <!--<bean id="userValidator" class="com.guru.mayoo.validator.UserValidator" />-->
-
-    <!--unable cache -->
-  <!--  <mvc:interceptors>
-        <bean id="webContentInterceptor"
-              class="org.springframework.web.servlet.mvc.WebContentInterceptor">
-            <property name="cacheSeconds" value="0"/>
-            <property name="useExpiresHeader" value="true"/>
-            <property name="useCacheControlHeader" value="true"/>
-            <property name="useCacheControlNoStore" value="true"/>
-        </bean>
-    </mvc:interceptors>-->
-
-    <!--localization and internationalization starts here -->
-
     <bean id="messageSource"
                 class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basename" value="classpath:messages" />
         <property name="defaultEncoding" value="UTF-8" />
     </bean>
 
-    <!--<bean id="messageSource"
-          class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        <property name="basename" value="classpath:messages_en" />
-        <property name="defaultEncoding" value="UTF-8"/>
-    </bean>
-
-    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver" >
-        <property name="defaultLocale" value="en"/>
-    </bean>
-
-    <mvc:interceptors>
-        <bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
-            <property name="paramName" value="language" />
-        </bean>
-    </mvc:interceptors>-->
-
-    <!--localization and internationalization ends here-->
-
     <!--email sender bean declarations starts -->
 
-    <!--<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
         <property name="host" value="smtp.gmail.com" />
         <property name="port" value="587" />
         <property name="username" value="abanstest@gmail.com" />
@@ -76,8 +40,11 @@
                 <prop key="mail.smtp.debug">true</prop>
             </props>
         </property>
-    </bean>-->
+    </bean>
 
+    <bean id="mailSenderC" class="com.madrona.server.utils.EmailSender">
+        <property name="mailSender" ref="mailSender"/>
+    </bean>
     <!--email sender bean declarations ends-->
 </beans>
 

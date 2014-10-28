@@ -9,7 +9,7 @@ public class Starter {
     public static void main(String[] args) {
         System.out.println("Printing.....");
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("madrona.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("madrona-rest-server-context.xml");
 
     }
 }
