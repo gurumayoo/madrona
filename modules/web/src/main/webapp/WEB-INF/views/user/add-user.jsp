@@ -11,13 +11,13 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Student Info
+                User Info
                 <small>Preview</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Student</a></li>
-                <li class="active">Add Student</li>
+                <li><a href="#">User</a></li>
+                <li class="active">Add User</li>
             </ol>
         </section>
 
@@ -36,7 +36,7 @@
                         <form role="form">
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="firstName">First Name</label>
+                                    <label for="firstName">User Name</label>
                                     <input type="text" class="form-control" id="firstName"
                                            placeholder="Enter First Name">
                                 </div>
@@ -116,91 +116,6 @@
                     <!-- /.box -->
                 </div>
                 <!--/.col (left) -->
-
-                <!-- right column -->
-                <div class="col-md-6">
-
-                    <div class="box box-info">
-                        <div class="box-header">
-                            <h3 class="box-title">Parent Info</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <form role="form">
-                                <!-- text input -->
-                                <div class="form-group">
-                                    <label>Father's Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter Father's Name"/>
-                                </div>
-                                <div class="form-group">
-                                    <label>Father's Job</label>
-                                    <input type="text" class="form-control" placeholder="Enter Father's Job"/>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Mother's Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter Mother's Name"/>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Mother's Job</label>
-                                    <input type="text" class="form-control" placeholder="Enter Mother's Job"/>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
-
-
-                    <div class="box box-info">
-                        <div class="box-header">
-                            <h3 class="box-title">Account Info</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <form role="form">
-                                <!-- text input -->
-                                <div class="form-group">
-                                    <label>Username</label>
-                                    <input type="text" class="form-control" placeholder="Enter Username"/>
-                                </div>
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Enter Password"/>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
-
-
-                    <div class="box box-info">
-                        <div class="box-header">
-                            <h3 class="box-title">Previous School Info</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <form role="form">
-                                <!-- text input -->
-                                <div class="form-group">
-                                    <label>School Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter.."/>
-                                </div>
-                                <div class="form-group">
-                                    <label>Left Date</label>
-                                    <input type="text" class="form-control" placeholder="Enter..."/>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
-
-
-                </div>
-                <!--/.col (right) -->
             </div>
             <!-- /.row -->
             <form role="form" action="list-student">

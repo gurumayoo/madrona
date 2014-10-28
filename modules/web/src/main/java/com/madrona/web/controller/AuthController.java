@@ -17,8 +17,18 @@ public class AuthController {
     }
 
     @RequestMapping(value = "/sign-up")
-    public String signUpPage() {
+        public String signUpPage() {
         return "sign-up";
+    }
+
+    @RequestMapping(value = "/add-user")
+    public String addNewUserPage() {
+        return "user/add-user";
+    }
+
+    @RequestMapping(value = "/list-user")
+    public String listUserPage() {
+        return "user/list-user";
     }
 
 }

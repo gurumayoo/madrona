@@ -1,0 +1,148 @@
+<html>
+<head>
+
+    <style type="text/css">
+        #items {
+            float: left;
+            border: 1px solid #F9F9F9;
+            width: 525px;
+        }
+
+        .item {
+            background-color: #FFF;
+            background-position: left top;
+            background-repeat: no-repeat;
+            border: 1px solid #EEE;
+            border-bottom: 2px solid #DDD;
+            border-right: 2px solid #DDD;
+            cursor: move;
+            float: left;
+            height: 175px;
+            margin: 10px;
+            position: relative;
+            width: 150px;
+        }
+
+        .item span {
+            bottom: 0;
+            font-size: 8px;
+            font-weight: bold;
+            left: 0;
+            position: absolute;
+            text-align: center;
+            width: 100%;
+        }
+
+        #cart {
+            background-color: #FFF;
+            border: 1px solid #F9F9F9;
+            float: right;
+            padding-bottom: 50px;
+            width: 495px;
+            height: 295px;
+        }
+
+        #cart .info {
+            color: #444;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #cart .item {
+            background-position: 50% -22px;
+            border-width: 1px;
+            cursor: default;
+            height: 85px;
+            margin: 5px;
+            width: 85px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<div id="items">
+    <div class="item"
+         style="background-image:url(http://demos111.mootools.net/demos/Drag.Cart/s1.jpg)">
+        <span>Shirt 1</span>
+    </div>
+    <div class="item"
+         style="background-image:url(http://demos111.mootools.net/demos/Drag.Cart/s2.jpg)">
+        <span>Shirt 2</span>
+    </div>
+    <div class="item"
+         style="background-image:url(http://demos111.mootools.net/demos/Drag.Cart/s3.jpg)">
+        <span>Shirt 3</span>
+    </div>
+    <div class="item"
+         style="background-image:url(http://demos111.mootools.net/demos/Drag.Cart/s4.jpg)">
+        <span>Shirt 4</span>
+    </div>
+    <div class="item"
+         style="background-image:url(http://demos111.mootools.net/demos/Drag.Cart/s5.jpg)">
+        <span>Shirt 5</span>
+    </div>
+    <div class="item"
+         style="background-image:url(http://demos111.mootools.net/demos/Drag.Cart/s6.jpg)">
+        <span>Shirt 6</span>
+    </div>
+</div>
+
+
+<div id="cart">
+    <div class="info">Drag Items Here</div>
+</div>
+
+
+<script src="http://mootools.net/demos/assets/codemirror/js/codemirror.js"></script>
+<script src="http://mootools.net/demos/Source/mootools-core-1.4-full.js"></script>
+<script src="http://mootools.net/demos/Source/mootools-more-1.4-full.js"></script>
+
+<script type="text/javascript">
+    window.addEvent('domready', function () {
+
+        $$('.item').addEvent('mousedown', function (event) {
+            event.stop();
+
+            // `this` refers to the element with the .item class
+            var shirt = this;
+
+            var clone = shirt.clone().setStyles(shirt.getCoordinates()).setStyles({
+                opacity: 0.7,
+                position: 'absolute'
+            }).inject(document.body);
+
+            var drag = new Drag.Move(clone, {
+
+                droppables: $('cart'),
+
+                onDrop: function (dragging, cart) {
+
+                    dragging.destroy();
+
+                    if (cart != null) {
+                        shirt.clone().inject(cart);
+                        cart.highlight('#7389AE', '#FFF');
+                    }
+                },
+                onEnter: function (dragging, cart) {
+                    cart.tween('background-color', '#98B5C1');
+                },
+                onLeave: function (dragging, cart) {
+                    cart.tween('background-color', '#FFF');
+                },
+                onCancel: function (dragging) {
+                    dragging.destroy();
+                }
+            });
+            drag.start(event);
+        });
+
+    });
+</script>
+
+
+</body>
+</html>

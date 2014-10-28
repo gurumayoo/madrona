@@ -6,12 +6,6 @@
 
 <body class="skin-blue">
 
-<jsp:include page="../includes/top-navbar.jsp"/>
-
-<div class="wrapper row-offcanvas row-offcanvas-left">
-
-<jsp:include page="../includes/side-menu.jsp"/>
-
 <!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
 <!-- Content Header (Page header) -->
@@ -551,12 +545,6 @@
 <!-- /.content -->
 </aside>
 <!-- /.right-side -->
-</div>
-<!-- ./wrapper -->
-
-<!-- add new calendar event modal -->
-
-
 </body>
 </fmt:bundle>
 </html>
