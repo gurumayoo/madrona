@@ -2,9 +2,38 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jaxrs="http://cxf.apache.org/jaxrs"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
-    <bean id="prepaidChargingSim" class="com.madrona.server.Starter">
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://cxf.apache.org/jaxrs
+       http://cxf.apache.org/schemas/jaxrs.xsd">
+
+    <context:property-placeholder location="classpath:madrona-core.properties"/>
+
+    <jaxrs:server id="madronaServer" address="http://localhost:20001">
+        <jaxrs:serviceBeans>
+            <ref bean="restService"/>
+        </jaxrs:serviceBeans>
+        <jaxrs:providers>
+            <ref bean="jacksonJsonProvider"/>
+        </jaxrs:providers>
+    </jaxrs:server>
+
+    <bean id="jacksonMapper" class="org.codehaus.jackson.map.ObjectMapper">
+        <property name="dateFormat">
+            <bean class="java.text.SimpleDateFormat">
+                <constructor-arg value="yyyy-MM-dd'T'HH:mm:ss.SSSZ"/>
+            </bean>
+        </property>
     </bean>
+
+    <bean id="jacksonJsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"
+          p:mapper-ref="jacksonMapper"/>
+
+    <bean id="restService" class="com.madrona.server.service.RestCoreService"/>
 
 </beans>

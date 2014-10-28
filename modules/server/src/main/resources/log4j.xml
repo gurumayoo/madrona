@@ -5,7 +5,7 @@
 <log4j:configuration debug="false" xmlns:log4j="http://jakarta.apache.org/log4j/">
 
     <appender name="error" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="/hms/logs/robi-simulator/charging_error.log"/>
+        <param name="File" value="/hms/logs/madrona-server/server_error.log"/>
         <param name="Threshold" value="error"/>
         <param name="DatePattern" value="'.'yyyy-MM-dd"/>
         <layout class="org.apache.log4j.PatternLayout">
@@ -14,7 +14,7 @@
     </appender>
 
     <appender name="debug" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="/hms/logs/robi-simulator/charging_debug.log"/>
+        <param name="File" value="/hms/logs/madrona-server/server_debug.log"/>
         <param name="Threshold" value="debug"/>
         <param name="DatePattern" value="'.'yyyy-MM-dd"/>
         <layout class="org.apache.log4j.PatternLayout">
@@ -22,27 +22,6 @@
         </layout>
     </appender>
 
-    <appender name="trans" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="/hms/logs/robi-simulator/charging_trans.log" />
-		<param name="Threshold" value="info" />
-		<param name="DatePattern" value="'.'yyyy-MM-dd" />
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="%m%n" />
-		</layout>
-	</appender>
-
-
-    <category name="TRANS_CHARGING" additivity="false">
-        <priority value="info"/>
-        <appender-ref ref="trans"/>
-    </category>
-
-    <category name="org.apache.cxf" additivity="false">
-        <priority value="info"/>
-        <appender-ref ref="debug"/>
-        <appender-ref ref="error"/>
-    </category>
-    
     <category name="org.springframework" additivity="false">
         <priority value="error"/>
         <appender-ref ref="error"/>

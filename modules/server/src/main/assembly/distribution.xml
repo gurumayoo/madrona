@@ -27,7 +27,7 @@
             <directory>${appassembler.basedir}/bin</directory>
             <outputDirectory>bin</outputDirectory>
             <includes>
-                <include>startSim</include>
+                <include>madrona-server</include>
             </includes>
             <fileMode>0755</fileMode>
             <lineEnding>unix</lineEnding>
