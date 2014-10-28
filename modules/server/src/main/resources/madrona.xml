@@ -12,7 +12,14 @@
        http://cxf.apache.org/jaxrs
        http://cxf.apache.org/schemas/jaxrs.xsd">
 
-    <context:property-placeholder location="classpath:madrona-core.properties"/>
+    <!-- Activates various annotations to be detected in bean classes -->
+    <context:annotation-config />
+
+    <context:property-placeholder location="classpath:connection.properties"/>
+
+
+    <import resource="madrona-context.xml" />
+    <import resource="spring-database.xml" />
 
     <jaxrs:server id="madronaServer" address="http://localhost:20001">
         <jaxrs:serviceBeans>
@@ -34,6 +41,13 @@
     <bean id="jacksonJsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"
           p:mapper-ref="jacksonMapper"/>
 
-    <bean id="restService" class="com.madrona.server.service.RestCoreService"/>
+    <bean id="restService" class="com.madrona.server.RestCoreService"
+            p:commonService-ref="commonService"/>
+
+    <bean id="commonService" class="com.madrona.server.service.impl.CommonServiceImpl"
+          p:commonDao-ref="commonDao"/>
+
+    <bean id="commonDao" class="com.madrona.server.dao.impl.CommonDaoImpl"
+            p:sessionFactory-ref="sessionFactory"/>
 
 </beans>
