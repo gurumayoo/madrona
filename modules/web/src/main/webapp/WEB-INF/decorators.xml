@@ -7,13 +7,12 @@
     </excludes>
 
     <decorator name="loginLayout" page="login-decorator.jsp">
-        <pattern>/</pattern>
-        <pattern>*/login</pattern>
-        <pattern>*/sign-up</pattern>
+        <pattern>*/login.jsp</pattern>
+        <pattern>*/sign-up.jsp</pattern>
     </decorator>
 
     <decorator name="indexLayout" page="dashboard-decorator.jsp">
-        <pattern>*/*</pattern>
+        <pattern>*/*.jsp</pattern>
     </decorator>
 
 </decorators>

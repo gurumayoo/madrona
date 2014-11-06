@@ -69,7 +69,6 @@
         <!-- /.content -->
     </aside>
     <!-- /.right-side -->
-    <!-- add new calendar event modal -->
     </body>
 </fmt:bundle>
 </html>

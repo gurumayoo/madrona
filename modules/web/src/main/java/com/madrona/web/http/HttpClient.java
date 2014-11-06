@@ -32,7 +32,6 @@ public class HttpClient {
 
     private WebClient webClient;
     private String url;
-    private int maxRetryCount = 3;
 
     public HttpClient(String url) {
         this.url = url;

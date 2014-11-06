@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AuthController {
 
-    @RequestMapping(value = {"/login", "/"})
+    @RequestMapping(value = {"/login"})
     public String loginPage() {
         return "login";
     }
@@ -17,7 +17,7 @@ public class AuthController {
     }
 
     @RequestMapping(value = "/sign-up")
-        public String signUpPage() {
+    public String signUpPage() {
         return "sign-up";
     }
 

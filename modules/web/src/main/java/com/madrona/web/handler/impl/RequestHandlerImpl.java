@@ -5,9 +5,6 @@ import com.madrona.server.model.Resp;
 import com.madrona.web.handler.RequestHandler;
 import com.madrona.web.http.HttpClient;
 
-/**
- * Created by mayooran for madrona on 10/31/14 9:45 PM.
- */
 public class RequestHandlerImpl implements RequestHandler {
 
     HttpClient httpClient;
