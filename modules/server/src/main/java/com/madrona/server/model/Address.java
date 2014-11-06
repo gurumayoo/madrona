@@ -1,9 +1,10 @@
 package com.madrona.server.model;
 
 import javax.persistence.MappedSuperclass;
+import java.util.Map;
 
 @MappedSuperclass
-public class Address {
+public class Address implements RequestMessage {
 
     protected String permanentAddressLine1;
     protected String permanentAddressLine2;
@@ -58,5 +59,11 @@ public class Address {
 
     public void setTempCity(String tempCity) {
         this.tempCity = tempCity;
+    }
+
+    @Override
+    public Map<String, Object> convertToMap() {
+        return null;
+
     }
 }

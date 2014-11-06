@@ -33,7 +33,7 @@
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form">
+                        <form role="form" action="add-house-action" method="POST">
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="firstName">House Name</label>
