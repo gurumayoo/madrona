@@ -13,13 +13,15 @@
 package com.madrona.web.http;
 
 import com.madrona.server.model.RequestMessage;
-import com.madrona.server.model.Resp;
+import com.madrona.server.model.CommonResponse;
 import org.apache.cxf.jaxrs.client.WebClient;
+import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.io.InputStream;
@@ -38,7 +40,7 @@ public class HttpClient {
     }
 
     public void init() {
-        List<Object> providers = new ArrayList<Object>();
+        List<Object> providers = new ArrayList<>();
         providers.add(new JacksonJsonProvider());
         webClient = WebClient.create(url, providers);
         webClient.header("Content-Type", "application/json");
@@ -46,31 +48,34 @@ public class HttpClient {
     }
 
 
-    public Resp send(RequestMessage request) {
+    public CommonResponse send(RequestMessage request) {
         try {
-            logger.info("WebClient it being initialized with uri [{}] for app Id [{}]", url, request);
+            logger.info("WebClient it being initialized with uri [{}] and request parameters for [{}]", url, request);
             Response response = webClient.post(request.convertToMap());
-            logger.debug("Response received from Server "+ response);
+            logger.info("Response received from madrona server, response status [{}]", response.getStatus());
             return readJsonResponse(response);
         } catch (Exception e) {
-            logger.error("Error while sending the notification to WebRTC Gateway", e);
+            logger.error("Error while sending the notification to server", e);
             return null;
         }
     }
 
-    private static Resp readJsonResponse(Response response) {
-        InputStream is = (InputStream) response.getEntity();
-        Class aClass = Map.class;
-        JacksonJsonProvider jsonProvider = new JacksonJsonProvider();
-        Map<String, Object> map;
+    private CommonResponse readJsonResponse(Response response) {
+        InputStream inputStream = (InputStream) response.getEntity();
+        ObjectMapper mapper = new ObjectMapper();
         try {
-            map = (Map<String, Object>) jsonProvider.readFrom(aClass, null, null, MediaType.APPLICATION_JSON_TYPE, null, is);
+            return mapper.readValue(inputStream, CommonResponse.class);
+        } catch (JsonGenerationException e) {
+            logger.error("Error occurred while generating json response [{}]", e);
+            return null;
+        } catch (JsonMappingException e) {
+            logger.error("Error occurred while mapping the json response [{}]", e);
+            return null;
         } catch (IOException e) {
-            logger.error("can't create the json object", e);
+            logger.error("Unknown error occurred [{}]", e);
             return null;
         }
-        return Resp.convertFromMap(map);
-    }
 
+    }
 
 }

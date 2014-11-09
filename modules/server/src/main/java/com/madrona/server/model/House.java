@@ -62,7 +62,6 @@ public class House implements RequestMessage, Serializable {
     @Override
     public Map<String, Object> convertToMap() {
         Map<String, Object> map = new HashMap<String, Object>();
-//        map.put("houseId", houseId);
         map.put("houseName", houseName);
         map.put("houseColor", houseColor);
         return map;

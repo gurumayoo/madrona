@@ -2,7 +2,7 @@ package com.madrona.server;
 
 
 import com.madrona.server.model.House;
-import com.madrona.server.model.Resp;
+import com.madrona.server.model.CommonResponse;
 import com.madrona.server.model.Student;
 import com.madrona.server.model.Subject;
 import com.madrona.server.service.CommonService;
@@ -26,7 +26,7 @@ public class RestCoreService {
     @Path("/add-house")
     @Consumes({"application/json"})
     @Produces({"application/json"})
-    public Resp addHouse(House house) {
+    public CommonResponse addHouse(House house) {
         LOGGER.debug("Adding house [{}]", house);
         commonService.addItem(house);
         return Status.SUCCESS;
@@ -36,7 +36,7 @@ public class RestCoreService {
     @Path("/add-student")
     @Consumes({"application/json"})
     @Produces({"application/json"})
-    public Resp addStudent(Student student) {
+    public CommonResponse addStudent(Student student) {
         LOGGER.debug("Adding student [{}]", student);
         commonService.addItem(student);
         return Status.SUCCESS;
@@ -46,7 +46,7 @@ public class RestCoreService {
     @Path("/add-subject")
     @Consumes({"application/json"})
     @Produces({"application/json"})
-    public Resp addSubject(Subject subject) {
+    public CommonResponse addSubject(Subject subject) {
         LOGGER.debug("Adding subject [{}]", subject);
         commonService.addItem(subject);
         return Status.SUCCESS;
