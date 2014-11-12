@@ -16,7 +16,6 @@ public class CommonServiceImpl implements CommonService {
 
     @Transactional
     public void addItem(Object item) {
-        System.out.println("==============================>");
         commonDao.addItem(item);
     }
 

@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 
 
 import javax.ws.rs.*;
+import java.util.List;
 
 @Path("/madrona/")
 public class RestCoreService {
@@ -30,6 +31,15 @@ public class RestCoreService {
         LOGGER.debug("Adding house [{}]", house);
         commonService.addItem(house);
         return Status.SUCCESS;
+    }
+
+    @GET
+    @Path("/list-house")
+    @Consumes({"application/json"})
+    @Produces({"application/json"})
+    public List<House> listHouses() {
+        LOGGER.debug("Viewing all houses");
+        return (List<House>)(List<?>) commonService.listItems("House");
     }
 
     @POST
