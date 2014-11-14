@@ -1,6 +1,8 @@
 package com.madrona.server.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,24 +14,16 @@ public class House implements RequestMessage, Serializable {
 
     @Id
     @GeneratedValue
-    private int houseId;
+    private int id;
     private String houseName;
     private String houseColor;
 
-    public House() {
+    public int getId() {
+        return id;
     }
 
-    public House(String houseName, String houseColor) {
-        this.houseName = houseName;
-        this.houseColor = houseColor;
-    }
-
-    public int getHouseId() {
-        return houseId;
-    }
-
-    public void setHouseId(int houseId) {
-        this.houseId = houseId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getHouseName() {
@@ -52,7 +46,7 @@ public class House implements RequestMessage, Serializable {
     public String toString() {
         final StringBuffer sb = new StringBuffer();
         sb.append("House");
-        sb.append("{houseId=").append(houseId);
+        sb.append("{id=").append(id);
         sb.append(", houseName='").append(houseName).append('\'');
         sb.append(", houseColor='").append(houseColor).append('\'');
         sb.append('}');

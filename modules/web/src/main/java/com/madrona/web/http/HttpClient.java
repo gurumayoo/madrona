@@ -12,13 +12,15 @@
 
 package com.madrona.web.http;
 
+import com.madrona.server.model.House;
 import com.madrona.server.model.RequestMessage;
-import com.madrona.server.model.CommonResponse;
+import com.madrona.server.model.AbstractResponse;
 import org.apache.cxf.jaxrs.client.WebClient;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.type.TypeFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,7 +50,7 @@ public class HttpClient {
     }
 
 
-    public CommonResponse send(RequestMessage request) {
+    public AbstractResponse send(RequestMessage request) {
         try {
             logger.info("WebClient it being initialized with uri [{}] and request parameters for [{}]", url, request);
             Response response = webClient.post(request.convertToMap());
@@ -60,11 +62,23 @@ public class HttpClient {
         }
     }
 
-    private CommonResponse readJsonResponse(Response response) {
+    public AbstractResponse send2(Map<String, Object> request) {
+        try {
+            logger.info("WebClient it being initialized with uri [{}] and request parameters for [{}]", url, request);
+            Response response = webClient.post(request);
+            logger.info("Response received from madrona server, response status [{}]", response.getStatus());
+            return readJsonResponse(response);
+        } catch (Exception e) {
+            logger.error("Error while sending the notification to server", e);
+            return null;
+        }
+    }
+
+    private AbstractResponse readJsonResponse(Response response) {
         InputStream inputStream = (InputStream) response.getEntity();
         ObjectMapper mapper = new ObjectMapper();
         try {
-            return mapper.readValue(inputStream, CommonResponse.class);
+            return mapper.readValue(inputStream, AbstractResponse.class);
         } catch (JsonGenerationException e) {
             logger.error("Error occurred while generating json response [{}]", e);
             return null;
@@ -78,4 +92,34 @@ public class HttpClient {
 
     }
 
+    public List<House> getHouse() {
+        try {
+            logger.info("WebClient it being initialized with uri [{}]", url);
+            Response response = webClient.get();
+            logger.info("Response received from madrona server, response status [{}]", response.getStatus());
+            return readJsonsResponse(response);
+        } catch (Exception e) {
+            logger.error("Error while sending the notification to server", e);
+            return null;
+        }
+    }
+
+    private List<House> readJsonsResponse(Response response) {
+        InputStream inputStream = (InputStream) response.getEntity();
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            List<House> list = mapper.readValue(inputStream,
+                    TypeFactory.defaultInstance().constructCollectionType(List.class, House.class));
+            return list;
+        } catch (JsonGenerationException e) {
+            logger.error("Error occurred while generating json response [{}]", e);
+            return null;
+        } catch (JsonMappingException e) {
+            logger.error("Error occurred while mapping the json response [{}]", e);
+            return null;
+        } catch (IOException e) {
+            logger.error("Unknown error occurred [{}]", e);
+            return null;
+        }
+    }
 }

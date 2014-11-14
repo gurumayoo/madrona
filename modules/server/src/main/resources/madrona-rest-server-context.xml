@@ -23,8 +23,12 @@
 
     <jaxrs:server id="madronaServer" address="http://localhost:20001">
         <jaxrs:serviceBeans>
-            <ref bean="restService"/>
+            <ref bean="restSportService"/>
+            <!--<ref bean="restStudentService"/>-->
         </jaxrs:serviceBeans>
+        <jaxrs:resourceComparator>
+            <bean id="accountServiceComparator" class="com.madrona.server.AccountServiceComparator"/>
+        </jaxrs:resourceComparator>
         <jaxrs:providers>
             <ref bean="jacksonJsonProvider"/>
         </jaxrs:providers>
@@ -41,14 +45,17 @@
     <bean id="jacksonJsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"
           p:mapper-ref="jacksonMapper"/>
 
-    <bean id="restService" class="com.madrona.server.RestCoreService"
-            p:commonService-ref="commonService"
+    <bean id="restStudentService" class="com.madrona.server.RestStudentService"
+          p:sportService-ref="sportService"
+          p:emailSender-ref="mailSenderService"/>
+
+    <bean id="restSportService" class="com.madrona.server.RestSportService"
+            p:sportService-ref="sportService"
             p:emailSender-ref="mailSenderService"/>
 
-    <bean id="commonService" class="com.madrona.server.service.impl.CommonServiceImpl"
-          p:commonDao-ref="commonDao"/>
+    <bean id="sportService" class="com.madrona.server.service.impl.SportServiceImpl"
+          p:sportDAO-ref="sportDAO"/>
 
-    <bean id="commonDao" class="com.madrona.server.dao.impl.CommonDaoImpl"
-            p:sessionFactory-ref="sessionFactory"/>
+    <bean id="sportDAO" class="com.madrona.server.dao.impl.SportDAOImpl"/>
 
 </beans>

@@ -2,15 +2,15 @@ package com.madrona.server.model;
 
 import java.util.Map;
 
-public class CommonResponse {
+public class AbstractResponse {
 
     private String statusCode;
     private String statusDescription;
 
-    public CommonResponse() {
+    public AbstractResponse() {
     }
 
-    public CommonResponse(String statusCode, String statusDescription) {
+    public AbstractResponse(String statusCode, String statusDescription) {
         this.statusCode = statusCode;
         this.statusDescription = statusDescription;
     }
@@ -34,14 +34,14 @@ public class CommonResponse {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer();
-        sb.append("CommonResponse");
+        sb.append("AbstractResponse");
         sb.append("{statusCode='").append(statusCode).append('\'');
         sb.append(", statusDescription='").append(statusDescription).append('\'');
         sb.append('}');
         return sb.toString();
     }
 
-    public static CommonResponse convertFromMap(Map<String, Object> map) {
-        return new CommonResponse((String)map.get("StatusCode"), (String)map.get("StatusDescription"));
+    public static AbstractResponse convertFromMap(Map<String, Object> map) {
+        return new AbstractResponse((String)map.get("StatusCode"), (String)map.get("StatusDescription"));
     }
 }
