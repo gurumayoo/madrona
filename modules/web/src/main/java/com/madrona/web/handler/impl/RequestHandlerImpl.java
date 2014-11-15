@@ -2,7 +2,7 @@ package com.madrona.web.handler.impl;
 
 import com.madrona.server.model.House;
 import com.madrona.server.model.AbstractResponse;
-import com.madrona.server.model.RequestMessage;
+import com.madrona.server.model.Student;
 import com.madrona.web.handler.RequestHandler;
 import com.madrona.web.http.HttpClient;
 
@@ -26,21 +26,31 @@ public class RequestHandlerImpl implements RequestHandler {
 
     @Override
     public AbstractResponse createHouse(House house) {
-        return clientMap.get("AddHouse").send(house);
+        return clientMap.get("AddHouse").send(house.convertToMap());
+    }
+
+    @Override
+    public AbstractResponse createStudent(Student student) {
+        return clientMap.get("AddStudent").send(student.convertToMap());
     }
 
     @Override
     public AbstractResponse deleteHouse(final String houseId) {
         Map<String, Object> map = new HashMap<>();
         map.put("id", houseId);
-        return clientMap.get("DeleteHouse").send2(map);
+        return clientMap.get("DeleteHouse").send(map);
     }
 
     @Override
-    public List<House> listAllHouse() {
-        System.out.println("======>" + clientMap.get("GetAllHouses"));
-        return clientMap.get("GetAllHouses").getHouse();
+    public List<House> listAllHouses() {
+        return clientMap.get("GetAllHouses").getAllHouse(House.class);
     }
+
+    @Override
+    public List<Student> listAllStudents() {
+        return clientMap.get("GetAllStudents").getAllHouse(Student.class);
+    }
+
 
     public void setUrlMap(Map<String, String> urlMap) {
         this.urlMap = urlMap;

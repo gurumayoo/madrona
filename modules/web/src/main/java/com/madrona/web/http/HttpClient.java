@@ -50,19 +50,7 @@ public class HttpClient {
     }
 
 
-    public AbstractResponse send(RequestMessage request) {
-        try {
-            logger.info("WebClient it being initialized with uri [{}] and request parameters for [{}]", url, request);
-            Response response = webClient.post(request.convertToMap());
-            logger.info("Response received from madrona server, response status [{}]", response.getStatus());
-            return readJsonResponse(response);
-        } catch (Exception e) {
-            logger.error("Error while sending the notification to server", e);
-            return null;
-        }
-    }
-
-    public AbstractResponse send2(Map<String, Object> request) {
+    public AbstractResponse send(Map<String, Object> request) {
         try {
             logger.info("WebClient it being initialized with uri [{}] and request parameters for [{}]", url, request);
             Response response = webClient.post(request);
@@ -92,24 +80,23 @@ public class HttpClient {
 
     }
 
-    public List<House> getHouse() {
+    public  List getAllHouse(Class clazz) {
         try {
             logger.info("WebClient it being initialized with uri [{}]", url);
             Response response = webClient.get();
             logger.info("Response received from madrona server, response status [{}]", response.getStatus());
-            return readJsonsResponse(response);
+            return readJsonsResponse(response, clazz);
         } catch (Exception e) {
             logger.error("Error while sending the notification to server", e);
             return null;
         }
     }
 
-    private List<House> readJsonsResponse(Response response) {
+    private List readJsonsResponse(Response response, Class clazz) {
         InputStream inputStream = (InputStream) response.getEntity();
         ObjectMapper mapper = new ObjectMapper();
         try {
-            List<House> list = mapper.readValue(inputStream,
-                    TypeFactory.defaultInstance().constructCollectionType(List.class, House.class));
+            List list = mapper.readValue(inputStream, TypeFactory.defaultInstance().constructCollectionType(List.class, clazz));
             return list;
         } catch (JsonGenerationException e) {
             logger.error("Error occurred while generating json response [{}]", e);

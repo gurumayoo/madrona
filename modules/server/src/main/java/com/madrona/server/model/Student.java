@@ -1,16 +1,20 @@
 package com.madrona.server.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 @Entity
-public class Student extends Address implements Serializable {
+public class Student implements RequestMessage, Serializable {
 
     private static final long serialVersionUID = -6790693372846798580L;
 
     @Id
     @GeneratedValue
-    private int studentId;
+    private int id;
     private String firstName;
     private String lastName;
     private String dateOfBirth;
@@ -20,21 +24,19 @@ public class Student extends Address implements Serializable {
     private String mobileNumber;
     private String houseId;
 
-    public Student(String firstName, String lastName, String dateOfBirth, String grade, String gender,
-                   String permanentAddressLine1, String permanentAddressLine2, String permanentCity,
-                   String tempAddressLine1, String tempAddressLine2, String tempCity, String emailAddress,
-                   String mobileNumber, String houseId) {
+    public Student(String firstName,
+                   String lastName,
+                   String dateOfBirth,
+                   String grade,
+                   String gender,
+                   String emailAddress,
+                   String mobileNumber,
+                   String houseId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
         this.grade = grade;
         this.gender = gender;
-        this.permanentAddressLine1 = permanentAddressLine1;
-        this.permanentAddressLine2 = permanentAddressLine2;
-        this.permanentCity = permanentCity;
-        this.tempAddressLine1 = tempAddressLine1;
-        this.tempAddressLine2 = tempAddressLine2;
-        this.tempCity = tempCity;
         this.emailAddress = emailAddress;
         this.mobileNumber = mobileNumber;
         this.houseId = houseId;
@@ -43,12 +45,12 @@ public class Student extends Address implements Serializable {
     public Student() {
     }
 
-    public int getStudentId() {
-        return studentId;
+    public int getId() {
+        return id;
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -113,5 +115,13 @@ public class Student extends Address implements Serializable {
 
     public void setHouseId(String houseId) {
         this.houseId = houseId;
+    }
+
+    @Override
+    public Map<String, Object> convertToMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("firstName", firstName);
+        map.put("lastName", lastName);
+        return map;
     }
 }

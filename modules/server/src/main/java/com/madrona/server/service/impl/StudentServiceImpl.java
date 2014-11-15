@@ -7,24 +7,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class StudentServiceImpl implements StudentService {
 
-	@Autowired
 	private StudentDao studentDao;
 
-	@Transactional
-	public void removeStudent(Integer id) {
-        studentDao.removeStudent(id);
-	}
-
-    @Transactional
-    public Student viewStudent(Integer id) {
-        return studentDao.viewStudent(id);
+    @Override
+    public Student getStudentById(int id) {
+        return studentDao.getStudentById(id);
     }
 
-    @Transactional
-    public Student findStudentByFirstName(String firstName) {
-        return null;
+    @Override
+    public int deleteStudentById(int id) {
+        return studentDao.deleteStudentById(id);
+    }
+
+    @Override
+    public boolean addStudent(Student student) {
+        return studentDao.addStudent(student);
+    }
+
+    @Override
+    public boolean updateStudent(Student student) {
+        return studentDao.updateStudent(student);
+    }
+
+    @Override
+    public List<Student> getAllStudents() {
+        return studentDao.getAllStudents();
+    }
+
+    public void setStudentDao(StudentDao studentDao) {
+        this.studentDao = studentDao;
     }
 }

@@ -1,23 +1,20 @@
 package com.madrona.server.dao;
 
+import com.madrona.server.model.House;
 import com.madrona.server.model.Student;
 
 import java.util.List;
 
 public interface StudentDao {
 
-    public void removeStudent(Integer id);
+    public Student getStudentById(int id);
 
-    public Student viewStudent(Integer id);
+    public int deleteStudentById(int id);
 
-    public List findStudentByFirstName(String firstName);
+    public boolean addStudent(Student student);
 
-    public Student findStudentByLastName(String lastName);
+    public boolean updateStudent(Student student);
 
-    public Student findStudentByGrade(String grade);
-
-    public Student findStudentByHouse(String house);
-
-
+    public List<Student> getAllStudents();
 }
 

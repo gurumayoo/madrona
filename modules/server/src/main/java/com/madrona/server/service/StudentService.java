@@ -2,11 +2,17 @@ package com.madrona.server.service;
 
 import com.madrona.server.model.Student;
 
+import java.util.List;
+
 public interface StudentService {
 
-    public void removeStudent(Integer id);
+    public Student getStudentById(int id);
 
-    public Student viewStudent(Integer id);
+    public int deleteStudentById(int id);
 
-    public Student findStudentByFirstName(String firstName);
+    public boolean addStudent(Student student);
+
+    public boolean updateStudent(Student student);
+
+    public List<Student> getAllStudents();
 }

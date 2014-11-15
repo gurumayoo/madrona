@@ -22,27 +22,26 @@
         </section>
 
         <!-- Main content -->
-        <section class="content">
-            <div class="row">
-                <!-- left column -->
-                <div class="col-md-6">
-                    <!-- general form elements -->
-                    <div class="box box-primary">
-                        <div class="box-header">
-                            <h3 class="box-title">Primary Info</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <!-- form start -->
-                        <form role="form">
+        <form role="form" action="add-student-action" method="post">
+            <section class="content">
+                <div class="row">
+                    <!-- left column -->
+                    <div class="col-md-6">
+                        <!-- general form elements -->
+                        <div class="box box-primary">
+                            <div class="box-header">
+                                <h3 class="box-title">Primary Info</h3>
+                            </div>
+                            <!-- /.box-header -->
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="firstName">First Name</label>
-                                    <input type="text" class="form-control" id="firstName"
+                                    <label for="first_name">First Name</label>
+                                    <input type="text" class="form-control" id="first_name" name="first_name"
                                            placeholder="Enter First Name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="lastName">Last Name</label>
-                                    <input type="text" class="form-control" id="lastName"
+                                    <label for="last_name">Last Name</label>
+                                    <input type="text" class="form-control" id="last_name" name="last_name"
                                            placeholder="Enter Last Name">
                                 </div>
                                 <div class="form-group">
@@ -90,43 +89,49 @@
                                 <!-- Date dd/mm/yyyy -->
                                 <div class="form-group">
                                     <label>Date of Birth</label>
+
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask/>
-                                    </div><!-- /.input group -->
-                                </div><!-- /.form group -->
+                                        <input type="text" class="form-control"
+                                               data-inputmask="'alias': 'dd/mm/yyyy'" data-mask/>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                                <!-- /.form group -->
 
                                 <!-- phone mask -->
                                 <div class="form-group">
                                     <label>Phone Number</label>
+
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-phone"></i>
                                         </div>
-                                        <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask/>
-                                    </div><!-- /.input group -->
-                                </div><!-- /.form group -->
+                                        <input type="text" class="form-control"
+                                               data-inputmask='"mask": "(999) 999-9999"' data-mask/>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                                <!-- /.form group -->
 
                             </div>
                             <!-- /.box-body -->
-                        </form>
-                    </div>
-                    <!-- /.box -->
-                </div>
-                <!--/.col (left) -->
-
-                <!-- right column -->
-                <div class="col-md-6">
-
-                    <div class="box box-info">
-                        <div class="box-header">
-                            <h3 class="box-title">Parent Info</h3>
                         </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <form role="form">
+                        <!-- /.box -->
+                    </div>
+                    <!--/.col (left) -->
+
+                    <!-- right column -->
+                    <div class="col-md-6">
+
+                        <div class="box box-info">
+                            <div class="box-header">
+                                <h3 class="box-title">Parent Info</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
                                 <!-- text input -->
                                 <div class="form-group">
                                     <label>Father's Name</label>
@@ -146,20 +151,18 @@
                                     <label>Mother's Job</label>
                                     <input type="text" class="form-control" placeholder="Enter Mother's Job"/>
                                 </div>
-                            </form>
+                            </div>
+                            <!-- /.box-body -->
                         </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
+                        <!-- /.box -->
 
 
-                    <div class="box box-info">
-                        <div class="box-header">
-                            <h3 class="box-title">Account Info</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <form role="form">
+                        <div class="box box-info">
+                            <div class="box-header">
+                                <h3 class="box-title">Account Info</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
                                 <!-- text input -->
                                 <div class="form-group">
                                     <label>Username</label>
@@ -169,20 +172,18 @@
                                     <label>Password</label>
                                     <input type="password" class="form-control" placeholder="Enter Password"/>
                                 </div>
-                            </form>
+                            </div>
+                            <!-- /.box-body -->
                         </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
+                        <!-- /.box -->
 
 
-                    <div class="box box-info">
-                        <div class="box-header">
-                            <h3 class="box-title">Previous School Info</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <form role="form">
+                        <div class="box box-info">
+                            <div class="box-header">
+                                <h3 class="box-title">Previous School Info</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
                                 <!-- text input -->
                                 <div class="form-group">
                                     <label>School Name</label>
@@ -192,27 +193,27 @@
                                     <label>Left Date</label>
                                     <input type="text" class="form-control" placeholder="Enter..."/>
                                 </div>
-                            </form>
+                            </div>
+                            <!-- /.box-body -->
                         </div>
-                        <!-- /.box-body -->
+                        <!-- /.box -->
+
+
                     </div>
-                    <!-- /.box -->
-
-
+                    <!--/.col (right) -->
                 </div>
-                <!--/.col (right) -->
-            </div>
-            <!-- /.row -->
-            <form role="form" action="list-student">
+                <!-- /.row -->
+
                 <div class="box box-body">
                     <div class="box-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <button type="button" class="btn btn-default">Cancel</button>
                     </div>
                 </div>
-            </form>
-        </section>
-        <!-- /.content -->
+
+            </section>
+            <!-- /.content -->
+        </form>
     </aside>
     <!-- /.right-side -->
 

@@ -21,14 +21,20 @@
     <import resource="spring-database.xml" />
     <import resource="mail-sender-context.xml" />
 
-    <jaxrs:server id="madronaServer" address="http://localhost:20001">
+    <!--Endpoint configurations-->
+    <jaxrs:server id="sportEndPoint" address="http://localhost:20001/madrona/sport">
         <jaxrs:serviceBeans>
-            <ref bean="restSportService"/>
-            <!--<ref bean="restStudentService"/>-->
+            <ref bean="restSportService" />
         </jaxrs:serviceBeans>
-        <jaxrs:resourceComparator>
-            <bean id="accountServiceComparator" class="com.madrona.server.AccountServiceComparator"/>
-        </jaxrs:resourceComparator>
+        <jaxrs:providers>
+            <ref bean="jacksonJsonProvider"/>
+        </jaxrs:providers>
+    </jaxrs:server>
+
+    <jaxrs:server id="studentEndPoint" address="http://localhost:20001/madrona/student">
+        <jaxrs:serviceBeans>
+            <ref bean="restStudentService" />
+        </jaxrs:serviceBeans>
         <jaxrs:providers>
             <ref bean="jacksonJsonProvider"/>
         </jaxrs:providers>
@@ -45,17 +51,28 @@
     <bean id="jacksonJsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"
           p:mapper-ref="jacksonMapper"/>
 
+    <!-- rest service beans-->
     <bean id="restStudentService" class="com.madrona.server.RestStudentService"
-          p:sportService-ref="sportService"
+          p:studentService-ref="studentService"
           p:emailSender-ref="mailSenderService"/>
 
     <bean id="restSportService" class="com.madrona.server.RestSportService"
             p:sportService-ref="sportService"
             p:emailSender-ref="mailSenderService"/>
 
+
+
+
     <bean id="sportService" class="com.madrona.server.service.impl.SportServiceImpl"
           p:sportDAO-ref="sportDAO"/>
 
+    <bean id="studentService" class="com.madrona.server.service.impl.StudentServiceImpl"
+          p:studentDao-ref="studentDAO"/>
+
+
+
+
     <bean id="sportDAO" class="com.madrona.server.dao.impl.SportDAOImpl"/>
 
+    <bean id="studentDAO" class="com.madrona.server.dao.impl.StudentDaoImpl"/>
 </beans>

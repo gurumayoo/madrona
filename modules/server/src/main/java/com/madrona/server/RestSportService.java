@@ -13,7 +13,7 @@ import javax.ws.rs.*;
 import java.util.List;
 import java.util.Map;
 
-@Path("/madrona/")
+@Path("/")
 public class RestSportService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RestSportService.class);

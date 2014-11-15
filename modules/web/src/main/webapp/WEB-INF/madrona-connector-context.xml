@@ -5,11 +5,16 @@
 	<bean id="requestHandler" class="com.madrona.web.handler.impl.RequestHandlerImpl" init-method="init">
 		<property name="urlMap">
 			<map>
-				<entry key="AddHouse" value="${add.new.house}" />
-				<entry key="GetHouse" value="${get.house}" />
-				<entry key="DeleteHouse" value="${delete.house}" />
-				<entry key="UpdateHouse" value="${update.house}" />
-				<entry key="GetAllHouses" value="${get.all.houses}" />
+				<entry key="AddHouse" value="${sport.add.new.house}" />
+				<entry key="GetHouse" value="${sport.get.house}" />
+				<entry key="DeleteHouse" value="${sport.delete.house}" />
+				<entry key="UpdateHouse" value="${sport.update.house}" />
+				<entry key="GetAllHouses" value="${sport.get.all.houses}" />
+
+				<entry key="AddStudent" value="${student.add.new.student}" />
+				<entry key="GetAllStudents" value="${student.get.all.students}" />
+
+
 			</map>
 		</property>
 	</bean>
