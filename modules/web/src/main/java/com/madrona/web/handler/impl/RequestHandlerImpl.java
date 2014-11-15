@@ -12,28 +12,37 @@ import java.util.Map;
 
 public class RequestHandlerImpl implements RequestHandler {
 
-    HttpClient httpClient;
+    private Map<String, String> urlMap;
+    private Map<String, HttpClient> clientMap;
+
+    public void init() {
+        clientMap = new HashMap<>();
+        for(Map.Entry<String, String> urls: urlMap.entrySet()){
+            HttpClient client = new HttpClient(urls.getValue());
+            client.init();
+            clientMap.put(urls.getKey(), client);
+        }
+    }
 
     @Override
     public AbstractResponse createHouse(House house) {
-        httpClient = new HttpClient("http://localhost:20001/madrona/add-house");
-        httpClient.init();
-        return httpClient.send(house);
+        return clientMap.get("AddHouse").send(house);
     }
 
     @Override
     public AbstractResponse deleteHouse(final String houseId) {
-        httpClient = new HttpClient("http://localhost:20001/madrona/delete-house");
-        httpClient.init();
         Map<String, Object> map = new HashMap<>();
         map.put("id", houseId);
-        return httpClient.send2(map);
+        return clientMap.get("DeleteHouse").send2(map);
     }
 
     @Override
     public List<House> listAllHouse() {
-        httpClient = new HttpClient("http://localhost:20001/madrona/list-houses");
-        httpClient.init();
-        return httpClient.getHouse();
+        System.out.println("======>" + clientMap.get("GetAllHouses"));
+        return clientMap.get("GetAllHouses").getHouse();
+    }
+
+    public void setUrlMap(Map<String, String> urlMap) {
+        this.urlMap = urlMap;
     }
 }

@@ -8,6 +8,7 @@ import com.madrona.web.handler.RequestHandler;
 import com.madrona.web.handler.impl.RequestHandlerImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,12 +22,10 @@ import java.util.Map;
 public class SportController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SportController.class);
+
+    @Autowired
     RequestHandler requestHandler;
-
-    public SportController() {
-        this.requestHandler = new RequestHandlerImpl();
-    }
-
+    
     @RequestMapping(value = "add-house-action", method = RequestMethod.POST)
     public String addHouseAction(HttpServletRequest request, RedirectAttributes redirectAttributes) {
         House house = new House();

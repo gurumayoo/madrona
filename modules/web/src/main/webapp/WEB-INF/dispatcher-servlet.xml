@@ -16,6 +16,7 @@
         <property name="locations">
             <list>
                 <value>classpath:messages_en.properties</value>
+                <value>classpath:madrona-connector.properties</value>
             </list>
         </property>
     </bean>

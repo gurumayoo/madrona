@@ -50,6 +50,7 @@
         <param-value>
             /WEB-INF/dispatcher-servlet.xml,
             /WEB-INF/applicationContext.xml,
+            /WEB-INF/madrona-connector-context.xml
         </param-value>
     </context-param>
 
