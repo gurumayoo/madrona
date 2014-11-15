@@ -1,48 +1,40 @@
 package com.madrona.server.model;
 
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 @Entity
-public class Parent implements Serializable{
+public class Parent implements RequestMessage, Serializable {
 
     private static final long serialVersionUID = -6790693372846798580L;
 
     @Id
     @GeneratedValue
-    private int parentId;
-    private String fatherFirstName;
-    private String fatherLastName;
+    private int id;
+    private String fatherName;
     private String fatherJob;
-    private String fatherDateOfBirth;
-    private String motherFirstName;
-    private String motherLastName;
+    private String motherName;
     private String motherJob;
-    private String motherDateOfBirth;
 
-    public int getParentId() {
-        return parentId;
+    public int getId() {
+        return id;
     }
 
-    public void setParentId(int parentId) {
-        this.parentId = parentId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getFatherFirstName() {
-        return fatherFirstName;
+    public String getFatherName() {
+        return fatherName;
     }
 
-    public void setFatherFirstName(String fatherFirstName) {
-        this.fatherFirstName = fatherFirstName;
-    }
-
-    public String getFatherLastName() {
-        return fatherLastName;
-    }
-
-    public void setFatherLastName(String fatherLastName) {
-        this.fatherLastName = fatherLastName;
+    public void setFatherName(String fatherName) {
+        this.fatherName = fatherName;
     }
 
     public String getFatherJob() {
@@ -53,28 +45,12 @@ public class Parent implements Serializable{
         this.fatherJob = fatherJob;
     }
 
-    public String getFatherDateOfBirth() {
-        return fatherDateOfBirth;
+    public String getMotherName() {
+        return motherName;
     }
 
-    public void setFatherDateOfBirth(String fatherDateOfBirth) {
-        this.fatherDateOfBirth = fatherDateOfBirth;
-    }
-
-    public String getMotherFirstName() {
-        return motherFirstName;
-    }
-
-    public void setMotherFirstName(String motherFirstName) {
-        this.motherFirstName = motherFirstName;
-    }
-
-    public String getMotherLastName() {
-        return motherLastName;
-    }
-
-    public void setMotherLastName(String motherLastName) {
-        this.motherLastName = motherLastName;
+    public void setMotherName(String motherName) {
+        this.motherName = motherName;
     }
 
     public String getMotherJob() {
@@ -85,11 +61,26 @@ public class Parent implements Serializable{
         this.motherJob = motherJob;
     }
 
-    public String getMotherDateOfBirth() {
-        return motherDateOfBirth;
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Parent{");
+        sb.append("id=").append(id);
+        sb.append(", fatherName='").append(fatherName).append('\'');
+        sb.append(", fatherJob='").append(fatherJob).append('\'');
+        sb.append(", motherName='").append(motherName).append('\'');
+        sb.append(", motherJob='").append(motherJob).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 
-    public void setMotherDateOfBirth(String motherDateOfBirth) {
-        this.motherDateOfBirth = motherDateOfBirth;
+    @Override
+    public Map<String, Object> convertToMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("fatherName", fatherName);
+        map.put("fatherJob", fatherJob);
+        map.put("motherName", motherName);
+        map.put("motherJob", motherJob);
+        return map;
     }
 }

@@ -24,24 +24,6 @@ public class Student implements RequestMessage, Serializable {
     private String mobileNumber;
     private String houseId;
 
-    public Student(String firstName,
-                   String lastName,
-                   String dateOfBirth,
-                   String grade,
-                   String gender,
-                   String emailAddress,
-                   String mobileNumber,
-                   String houseId) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.dateOfBirth = dateOfBirth;
-        this.grade = grade;
-        this.gender = gender;
-        this.emailAddress = emailAddress;
-        this.mobileNumber = mobileNumber;
-        this.houseId = houseId;
-    }
-
     public Student() {
     }
 
@@ -122,6 +104,28 @@ public class Student implements RequestMessage, Serializable {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("firstName", firstName);
         map.put("lastName", lastName);
+        map.put("dateOfBirth", dateOfBirth);
+        map.put("gender", gender);
+        map.put("grade", grade);
+        map.put("emailAddress", emailAddress);
+        map.put("mobileNumber", mobileNumber);
+        map.put("houseId", houseId);
         return map;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Student{");
+        sb.append("id=").append(id);
+        sb.append(", firstName='").append(firstName).append('\'');
+        sb.append(", lastName='").append(lastName).append('\'');
+        sb.append(", dateOfBirth='").append(dateOfBirth).append('\'');
+        sb.append(", grade='").append(grade).append('\'');
+        sb.append(", gender='").append(gender).append('\'');
+        sb.append(", emailAddress='").append(emailAddress).append('\'');
+        sb.append(", mobileNumber='").append(mobileNumber).append('\'');
+        sb.append(", houseId='").append(houseId).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

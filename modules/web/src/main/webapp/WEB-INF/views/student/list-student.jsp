@@ -28,6 +28,13 @@
         <!-- Main content -->
         <section class="content">
             <div class="row">
+                <div class="col-xs-3">
+                    <!-- add new house btn -->
+                    <a href="add-student" class="btn btn-block btn-primary"><i class="fa fa-plus"></i> Add New Student</a>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header">
@@ -41,44 +48,26 @@
                                     <th>Student Name</th>
                                     <th>Grade</th>
                                     <th>Date of Birth</th>
-                                    <th>Engine version</th>
-                                    <%--<th>CSS grade</th>--%>
+                                    <th>Email</th>
+                                    <th>Status</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>Trident</td>
-                                    <td>Internet
-                                        Explorer 4.0
-                                    </td>
-                                    <td>Win 95+</td>
-                                    <td> 4</td>
-                                    <%--<td>X</td>--%>
-                                </tr>
+
 
                                 <c:forEach var="student" items="${students}">
                                     <tr>
-                                        <td>${student.firstName}</td>
-                                        <td>${student.lastName}</td>
-                                        <td>11-7-2014</td>
-                                        <td>
-                                            <a href="delete-student?student-id=${student.id}">
-                                                <span class="label label-danger">Delete</span>
-                                            </a>
-                                        </td>
+                                        <td><a href="view-student?id=${student.id}">${student.firstName}, ${student.lastName}</a></td>
+                                        <td>${student.grade}</td>
+                                        <td>${student.dateOfBirth}</td>
+                                        <td>${student.emailAddress}</td>
+                                        <td><span class="label label-success">Active</span></td>
                                     </tr>
                                 </c:forEach>
 
 
                                 </tbody>
                                 <tfoot>
-                                <tr>
-                                    <th>Rendering engine</th>
-                                    <th>Browser</th>
-                                    <th>Platform(s)</th>
-                                    <th>Engine version</th>
-                                    <%--<th>CSS grade</th>--%>
-                                </tr>
                                 </tfoot>
                             </table>
                         </div>

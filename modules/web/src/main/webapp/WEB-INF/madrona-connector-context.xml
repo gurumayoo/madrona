@@ -13,8 +13,15 @@
 
 				<entry key="AddStudent" value="${student.add.new.student}" />
 				<entry key="GetAllStudents" value="${student.get.all.students}" />
+			</map>
+		</property>
+	</bean>
 
-
+	<bean id="getRequestHandler" class="com.madrona.web.handler.impl.GetRequestHandlerImpl">
+		<!--<property name="urls" value="${student.get.student.by.id}"/>-->
+		<property name="urlMap">
+			<map>
+				<entry key="GetStudent" value="${student.get.student.by.id}" />
 			</map>
 		</property>
 	</bean>

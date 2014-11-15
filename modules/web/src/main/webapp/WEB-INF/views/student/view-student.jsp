@@ -37,17 +37,17 @@
                                 <div class="form-group">
                                     <label for="first_name">First Name</label>
                                     <input type="text" class="form-control" id="first_name" name="first_name"
-                                           placeholder="Enter First Name">
+                                           value="${student.firstName}">
                                 </div>
                                 <div class="form-group">
                                     <label for="last_name">Last Name</label>
                                     <input type="text" class="form-control" id="last_name" name="last_name"
-                                           placeholder="Enter Last Name">
+                                           value="${student.firstName}">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email address</label>
                                     <input type="email" class="form-control" id="email" name="email"
-                                           placeholder="Enter email">
+                                           value="${student.firstName}">
                                 </div>
                                 <!-- radio -->
                                 <div class="form-group">
@@ -66,7 +66,9 @@
                                 <!-- textarea -->
                                 <div class="form-group">
                                     <label>Home Address</label>
-                                    <textarea class="form-control" rows="3" placeholder="Enter Address" name="address"></textarea>
+                                    <textarea class="form-control" rows="3" name="address">
+                                       <c:out value="${student.address}"/>
+                                    </textarea>
                                 </div>
 
                                 <!-- select -->

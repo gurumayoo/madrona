@@ -43,12 +43,12 @@ public class RequestHandlerImpl implements RequestHandler {
 
     @Override
     public List<House> listAllHouses() {
-        return clientMap.get("GetAllHouses").getAllHouse(House.class);
+        return clientMap.get("GetAllHouses").getAllItems(House.class);
     }
 
     @Override
     public List<Student> listAllStudents() {
-        return clientMap.get("GetAllStudents").getAllHouse(Student.class);
+        return clientMap.get("GetAllStudents").getAllItems(Student.class);
     }
 
 

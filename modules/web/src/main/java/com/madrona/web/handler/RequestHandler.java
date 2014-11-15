@@ -18,4 +18,6 @@ public interface RequestHandler {
     List<House> listAllHouses();
 
     List<Student> listAllStudents();
+
+//    Student viewStudentById(String id);
 }

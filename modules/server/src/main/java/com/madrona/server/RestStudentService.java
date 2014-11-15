@@ -40,6 +40,16 @@ public class RestStudentService {
         return studentService.getAllStudents();
     }
 
+    @GET
+    @Path("/get-student")
+    @Consumes({"application/json"})
+    @Produces({"application/json"})
+    public Student getHouse(@QueryParam("id") String houseId) {
+        System.out.println(houseId);
+        int id = Integer.parseInt(houseId);
+        return studentService.getStudentById(id);
+    }
+
     public void setStudentService(StudentService studentService) {
         this.studentService = studentService;
     }
