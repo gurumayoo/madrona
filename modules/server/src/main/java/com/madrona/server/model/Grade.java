@@ -10,7 +10,7 @@ public class Grade implements Serializable {
 
     @Id
     @GeneratedValue
-    private int gradeId;
+    private int id;
     private String gradeName;
     private String gradeTeacher;
 
@@ -22,12 +22,12 @@ public class Grade implements Serializable {
         this.gradeTeacher = gradeTeacher;
     }
 
-    public int getGradeId() {
-        return gradeId;
+    public int getId() {
+        return id;
     }
 
-    public void setGradeId(int gradeId) {
-        this.gradeId = gradeId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getGradeName() {

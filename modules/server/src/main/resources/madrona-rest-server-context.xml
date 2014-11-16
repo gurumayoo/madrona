@@ -40,6 +40,15 @@
         </jaxrs:providers>
     </jaxrs:server>
 
+    <jaxrs:server id="gradeEndPoint" address="http://localhost:20001/madrona/grade">
+        <jaxrs:serviceBeans>
+            <ref bean="restGradeService" />
+        </jaxrs:serviceBeans>
+        <jaxrs:providers>
+            <ref bean="jacksonJsonProvider"/>
+        </jaxrs:providers>
+    </jaxrs:server>
+
     <bean id="jacksonMapper" class="org.codehaus.jackson.map.ObjectMapper">
         <property name="dateFormat">
             <bean class="java.text.SimpleDateFormat">
@@ -61,6 +70,10 @@
             p:emailSender-ref="mailSenderService"/>
 
 
+    <bean id="restGradeService" class="com.madrona.server.RestGradeService"
+          p:gradeService-ref="gradeService"
+          p:emailSender-ref="mailSenderService"/>
+
 
 
     <bean id="sportService" class="com.madrona.server.service.impl.SportServiceImpl"
@@ -69,10 +82,11 @@
     <bean id="studentService" class="com.madrona.server.service.impl.StudentServiceImpl"
           p:studentDao-ref="studentDAO"/>
 
-
+    <bean id="gradeService" class="com.madrona.server.service.impl.GradeServiceImpl"
+          p:gradeDao-ref="gradeDAO"/>
 
 
     <bean id="sportDAO" class="com.madrona.server.dao.impl.SportDAOImpl"/>
-
     <bean id="studentDAO" class="com.madrona.server.dao.impl.StudentDaoImpl"/>
+    <bean id="gradeDAO" class="com.madrona.server.dao.impl.GradeDaoImpl"/>
 </beans>
