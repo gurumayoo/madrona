@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,6 +18,7 @@ public class House implements RequestMessage, Serializable {
     private int id;
     private String houseName;
     private String houseColor;
+    private Date createDate;
 
     public int getId() {
         return id;
@@ -42,13 +44,22 @@ public class House implements RequestMessage, Serializable {
         this.houseColor = houseColor;
     }
 
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer();
+        final StringBuilder sb = new StringBuilder();
         sb.append("House");
         sb.append("{id=").append(id);
         sb.append(", houseName='").append(houseName).append('\'');
         sb.append(", houseColor='").append(houseColor).append('\'');
+        sb.append(", createDate='").append(createDate).append('\'');
         sb.append('}');
         return sb.toString();
     }
@@ -58,6 +69,7 @@ public class House implements RequestMessage, Serializable {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("houseName", houseName);
         map.put("houseColor", houseColor);
+        map.put("createDate", createDate);
         return map;
     }
 }

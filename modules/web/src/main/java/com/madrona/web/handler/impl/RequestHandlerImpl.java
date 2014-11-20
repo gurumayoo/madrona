@@ -1,7 +1,8 @@
 package com.madrona.web.handler.impl;
 
-import com.madrona.server.model.House;
 import com.madrona.server.model.AbstractResponse;
+import com.madrona.server.model.Grade;
+import com.madrona.server.model.House;
 import com.madrona.server.model.Student;
 import com.madrona.web.handler.RequestHandler;
 import com.madrona.web.http.HttpClient;
@@ -17,7 +18,7 @@ public class RequestHandlerImpl implements RequestHandler {
 
     public void init() {
         clientMap = new HashMap<>();
-        for(Map.Entry<String, String> urls: urlMap.entrySet()){
+        for (Map.Entry<String, String> urls : urlMap.entrySet()) {
             HttpClient client = new HttpClient(urls.getValue());
             client.init();
             clientMap.put(urls.getKey(), client);
@@ -35,6 +36,11 @@ public class RequestHandlerImpl implements RequestHandler {
     }
 
     @Override
+    public AbstractResponse createGrade(Grade grade) {
+        return clientMap.get("AddGrade").send(grade.convertToMap());
+    }
+
+    @Override
     public AbstractResponse deleteHouse(final String houseId) {
         Map<String, Object> map = new HashMap<>();
         map.put("id", houseId);
@@ -49,6 +55,11 @@ public class RequestHandlerImpl implements RequestHandler {
     @Override
     public List<Student> listAllStudents() {
         return clientMap.get("GetAllStudents").getAllItems(Student.class);
+    }
+
+    @Override
+    public List<Grade> listAllGrades() {
+        return clientMap.get("GetAllGrades").getAllItems(Grade.class);
     }
 
 

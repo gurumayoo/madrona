@@ -13,6 +13,9 @@
 
 				<entry key="AddStudent" value="${student.add.new.student}" />
 				<entry key="GetAllStudents" value="${student.get.all.students}" />
+
+				<entry key="AddGrade" value="${grade.add.new.grade}" />
+				<entry key="GetAllGrades" value="${grade.get.all.grades}" />
 			</map>
 		</property>
 	</bean>

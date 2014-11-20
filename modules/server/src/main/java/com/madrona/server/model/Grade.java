@@ -2,9 +2,11 @@ package com.madrona.server.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 @Entity
-public class Grade implements Serializable {
+public class Grade implements RequestMessage, Serializable {
 
     private static final long serialVersionUID = -6790693372846798580L;
 
@@ -44,5 +46,13 @@ public class Grade implements Serializable {
 
     public void setGradeTeacher(String gradeTeacher) {
         this.gradeTeacher = gradeTeacher;
+    }
+
+    @Override
+    public Map<String, Object> convertToMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("gradeName", gradeName);
+        map.put("gradeTeacher", gradeTeacher);
+        return map;
     }
 }

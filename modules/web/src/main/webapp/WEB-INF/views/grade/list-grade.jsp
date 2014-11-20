@@ -32,7 +32,7 @@
                 <div class="col-xs-3">
                     <!-- add new house btn -->
                     <a class="btn btn-block btn-primary" data-toggle="modal" data-target="#compose-modal"><i
-                            class="fa fa-plus"></i> Add New House</a>
+                            class="fa fa-plus"></i> Add New Classes</a>
                 </div>
             </div>
             <br/>
@@ -52,7 +52,7 @@
 
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">House Info Table</h3>
+                            <h3 class="box-title">Classes Info Table</h3>
 
                             <div class="box-tools">
                                 <div class="input-group">
@@ -69,20 +69,18 @@
                         <div class="box-body table-responsive no-padding">
                             <table class="table table-hover table-bordered">
                                 <tr>
-                                    <th>House ID</th>
-                                    <th>House Name</th>
-                                    <th>House Color</th>
+                                    <th>Class ID</th>
+                                    <th>Class Name</th>
                                     <th>Created Date</th>
                                     <th>Action</th>
                                 </tr>
-                                <c:forEach var="house" items="${houses}">
+                                <c:forEach var="grade" items="${grades}">
                                     <tr>
-                                        <td>${house.id}</td>
-                                        <td>${house.houseName}</td>
-                                        <td>${house.houseColor}</td>
-                                        <td>${house.createDate}</td>
+                                        <td>${grade.gradeName}</td>
+                                        <td>${grade.gradeTeacher}</td>
+                                        <td>11-7-2014</td>
                                         <td>
-                                            <a href="delete-house?house-id=${house.id}">
+                                            <a href="delete-grade?grade-id=${grade.id}">
                                                 <span class="label label-danger">Delete</span>
                                             </a>
                                         </td>
@@ -110,24 +108,21 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title"><i class="fa fa-plus"></i> Add New House</h4>
+                    <h4 class="modal-title"><i class="fa fa-plus"></i> Add New Class</h4>
                 </div>
-                <form name="add-house" action="add-house-action" method="post">
+                <form name="add-house" action="add-grade-action" method="post">
                     <div class="modal-body">
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon">House Name</span>
-                                <input name="house_name" type="text" class="form-control" placeholder="House Name">
+                                <span class="input-group-addon">Class Name</span>
+                                <input name="grade_name" type="text" class="form-control" placeholder="Class Name">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon">House Color</span>
-                                <select name="house_color" class="form-control" title="House Color">
-                                    <option value="Red"> Red</option>
-                                    <option value="Blue"> Blue</option>
-                                    <option value="Yellow"> Yellow</option>
-                                </select>
+                                <span class="input-group-addon">Class Teacher</span>
+                                <input name="grade_teacher" type="text" class="form-control"
+                                       placeholder="Class Teacher Name">
                             </div>
                         </div>
                     </div>
@@ -137,7 +132,11 @@
                             Discard
                         </button>
 
-                        <button type="submit" class="btn btn-primary pull-left"><i class="fa fa-plus"></i> Add</button>
+
+                        <button type="submit" class="btn btn-primary pull-left col-xs-3">
+                            <i class="fa fa-plus"></i> Add
+                        </button>
+
                     </div>
                 </form>
             </div>
