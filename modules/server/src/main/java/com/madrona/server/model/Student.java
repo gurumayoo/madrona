@@ -1,9 +1,12 @@
 package com.madrona.server.model;
 
+import com.mysql.jdbc.Blob;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,6 +26,8 @@ public class Student implements RequestMessage, Serializable {
     private String emailAddress;
     private String mobileNumber;
     private String houseId;
+    private String homeAddress;
+    private Date joinDate;
 
     public Student() {
     }
@@ -99,6 +104,23 @@ public class Student implements RequestMessage, Serializable {
         this.houseId = houseId;
     }
 
+    public String getHomeAddress() {
+        return homeAddress;
+    }
+
+    public void setHomeAddress(String homeAddress) {
+        this.homeAddress = homeAddress;
+    }
+
+    public Date getJoinDate() {
+        return joinDate;
+    }
+
+    public void setJoinDate(Date joinDate) {
+        this.joinDate = joinDate;
+    }
+
+
     @Override
     public Map<String, Object> convertToMap() {
         Map<String, Object> map = new HashMap<String, Object>();
@@ -110,6 +132,8 @@ public class Student implements RequestMessage, Serializable {
         map.put("emailAddress", emailAddress);
         map.put("mobileNumber", mobileNumber);
         map.put("houseId", houseId);
+        map.put("homeAddress", homeAddress);
+        map.put("joinDate", joinDate);
         return map;
     }
 
@@ -125,6 +149,8 @@ public class Student implements RequestMessage, Serializable {
         sb.append(", emailAddress='").append(emailAddress).append('\'');
         sb.append(", mobileNumber='").append(mobileNumber).append('\'');
         sb.append(", houseId='").append(houseId).append('\'');
+        sb.append(", homeAddress='").append(homeAddress).append('\'');
+        sb.append(", joinDate='").append(joinDate).append('\'');
         sb.append('}');
         return sb.toString();
     }

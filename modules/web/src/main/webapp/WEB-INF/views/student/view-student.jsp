@@ -42,32 +42,33 @@
                                 <div class="form-group">
                                     <label for="last_name">Last Name</label>
                                     <input type="text" class="form-control" id="last_name" name="last_name"
-                                           value="${student.firstName}">
+                                           value="${student.lastName}">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email address</label>
                                     <input type="email" class="form-control" id="email" name="email"
-                                           value="${student.firstName}">
+                                           value="${student.emailAddress}">
                                 </div>
                                 <!-- radio -->
                                 <div class="form-group">
                                     <label for="genderMale">Gender</label>
 
+                                    <c:out value="${student.gender}"/>
+
                                     <div class="radio">
                                         <label><input type="radio" name="gender" id="genderMale" value="male"
-                                                      checked> Male</label>
+                                                ${student.gender == 'male'? 'checked':''}> Male</label>
                                     </div>
                                     <div class="radio">
-                                        <label><input type="radio" name="gender" id="genderFemale" value="female">
-                                            Female</label>
+                                        <label><input type="radio" name="gender" id="genderFemale" value="female"
+                                                ${student.gender == 'female'? 'checked':''}> Female</label>
                                     </div>
                                 </div>
 
                                 <!-- textarea -->
                                 <div class="form-group">
-                                    <label>Home Address</label>
-                                    <textarea class="form-control" rows="3" name="address">
-                                       <c:out value="${student.address}"/>
+                                    <label for="address">Home Address</label>
+                                    <textarea class="form-control" rows="3" name="address" id="address"><c:out value="${student.homeAddress}"/>
                                     </textarea>
                                 </div>
 
@@ -92,7 +93,7 @@
                                             <i class="fa fa-calendar"></i>
                                         </div>
                                         <input type="text" class="form-control" name="birth_date"
-                                               data-inputmask="'alias': 'dd/mm/yyyy'" data-mask/>
+                                               value="${student.dateOfBirth}"  data-inputmask="'alias': 'dd/mm/yyyy'" data-mask/>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -107,7 +108,7 @@
                                             <i class="fa fa-phone"></i>
                                         </div>
                                         <input type="text" class="form-control" name="phone_no"
-                                               data-inputmask='"mask": "(999) 999-9999"' data-mask/>
+                                               value="${student.mobileNumber}"   data-inputmask='"mask": "(999) 999-9999"' data-mask/>
                                     </div>
                                     <!-- /.input group -->
                                 </div>

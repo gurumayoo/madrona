@@ -80,7 +80,7 @@
                                         <td>${house.id}</td>
                                         <td>${house.houseName}</td>
                                         <td>${house.houseColor}</td>
-                                        <td>${house.createDate}</td>
+                                        <td><fmt:formatDate pattern="yyyy-MM-dd" value="${house.createDate}"/></td>
                                         <td>
                                             <a href="delete-house?house-id=${house.id}">
                                                 <span class="label label-danger">Delete</span>

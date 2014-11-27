@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -42,6 +43,8 @@ public class StudentController {
         student.setDateOfBirth(request.getParameter("birth_date"));
         student.setGrade(request.getParameter("grade"));
         student.setMobileNumber(request.getParameter("phone_no"));
+        student.setHomeAddress(request.getParameter("address"));
+        student.setJoinDate(new Date());
 
         Parent parent = new Parent();
         parent.setFatherName(request.getParameter("father_name"));
@@ -69,7 +72,6 @@ public class StudentController {
     @RequestMapping(value = "view-student")
     public String viewStudentPage(HttpServletRequest request, Map<String, Object> map) {
         Student student = getRequestHandler.viewStudentById(request.getParameter("id"));
-        System.out.println("dkfjdslkfnd" + student);
         map.put("student", student);
         return "student/view-student";
     }

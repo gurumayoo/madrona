@@ -49,6 +49,7 @@
                                     <th>Grade</th>
                                     <th>Date of Birth</th>
                                     <th>Email</th>
+                                    <th>Join Date</th>
                                     <th>Status</th>
                                 </tr>
                                 </thead>
@@ -61,6 +62,7 @@
                                         <td>${student.grade}</td>
                                         <td>${student.dateOfBirth}</td>
                                         <td>${student.emailAddress}</td>
+                                        <td><fmt:formatDate value="${student.joinDate}" pattern="dd/MM/yyyy"/></td>
                                         <td><span class="label label-success">Active</span></td>
                                     </tr>
                                 </c:forEach>
