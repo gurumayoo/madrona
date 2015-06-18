@@ -1,10 +1,7 @@
 package com.madrona.server.dao.impl;
 
 import com.madrona.server.dao.StudentDao;
-import com.madrona.server.model.House;
 import com.madrona.server.model.Student;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
-    <artifactId>parent-madrona</artifactId>
+    <artifactId>madrona-parent</artifactId>
 
     <properties>
         <!-- Dependency versions-->
